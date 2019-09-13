@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var User = require("../models/objeto");
+var Objeto = require("../models/objeto");
 
 router
     .route("/")
@@ -20,9 +20,9 @@ router
         objeto.descripcionObjeto = descripcionObjeto;
         objeto.precioBase = precioBase;
 
-        user.save((err) => {
+        objeto.save((err) => {
             if(err) throw err;
-            res.json({message: "User successfully added! :-)"});
+            res.json({message: "Objeto successfully added! :-)"});
         });
 
     });
