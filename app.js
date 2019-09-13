@@ -2,7 +2,8 @@ var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var config = require("./config/properties.json");
-var userRouter = require("./routes/user");
+var objetoRouter = require("./route/objeto");
+var tipoobjetoRouter = require("./route/tipoObjeto");
 
 var app = express();
 
@@ -18,7 +19,11 @@ app.use(function(req, res, next){
      next();
 });
 
-app.use('/api', userRouter);
+app.use('/api/objeto', objetoRouter);
+app.use('/api/tipoobjeto', tipoobjetoRouter);
+
+
+
 
 mongoose.connect(config.mongo_url, { useNewUrlParser: true })
 .then(()=>{

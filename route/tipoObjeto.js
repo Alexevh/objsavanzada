@@ -1,9 +1,9 @@
 var express = require("express");
 var router = express.Router();
-var tipoObjeto = require("../models/tipoObjeto");
+var TipoObjeto = require("../models/tipo_objeto");
 
 router
-    .route("/tipoobjetos")
+    .route("/")
     .get((req,res) => {
         User.find((err, tipoObjeto) => {
             if(err) throw err;
@@ -13,12 +13,12 @@ router
     .post((req,res) => {
         // const name = req.body.name;
         const { nombreTipo, codigoTipo } = req.body;
-        var tipoObjeto = new tipoObjeto();
-        objeto.nombreTipo = nombreTipo;
-        objeto.codigoTipo = codigoTipo;
+        var tipoObjeto = new TipoObjeto();
+        tipoObjeto.nombreTipo = nombreTipo;
+        tipoObjeto.codigoTipo = codigoTipo;
         
 
-        user.save((err) => {
+        tipoObjeto.save((err) => {
             if(err) throw err;
             res.json({message: "TipoObjeto successfully added! :-)"});
         });

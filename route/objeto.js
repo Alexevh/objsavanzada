@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require("../models/objeto");
 
 router
-    .route("/objetos")
+    .route("/")
     .get((req,res) => {
         User.find((err, objeto) => {
             if(err) throw err;
