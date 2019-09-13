@@ -27,4 +27,16 @@ router
 
     });
 
+
+    router
+    .route("/:id")
+    .get((req,res) => {
+        Objeto.findById(req.params.id,(err, objeto) => {
+            console.log(req.params.id);
+            if(err) throw err;
+            res.json(objeto);
+        })
+    })
+    
+
 module.exports = router;
