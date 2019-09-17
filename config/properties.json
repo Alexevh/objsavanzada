@@ -1,4 +1,4 @@
 {
     "port": 3000,
-    "mongo_url": "mongodb://127.0.0.1/obpja"
+    "mongo_url": "mongodb+srv://pruebaOrt:TodosPutos@cluster0-ophys.mongodb.net/test?retryWrites=true&w=majority"
 }
