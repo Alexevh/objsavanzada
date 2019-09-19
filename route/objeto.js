@@ -21,7 +21,8 @@ router
         objeto.precioBase = precioBase;
 
         objeto.save((err) => {
-            if(err) throw err;
+           // if(err) throw err;
+            if(err) res.json({message: "Hubo un error al encontrar el objeto "+err});
             res.json({message: "Objeto successfully added! :-)"});
         });
 
@@ -34,7 +35,8 @@ router
     .get((req,res) => {
         Objeto.findById(req.params.id,(err, objeto) => {
             console.log(req.params.id);
-            if(err) throw err;
+            //if(err) throw err;
+            if(err) res.json({message: "Hubo un error al encontrar el objeto "+err});
             res.json(objeto);
         })
     })
@@ -65,7 +67,8 @@ router
             {
                 if (err)
                 {
-                    res.json(err);
+                    //res.json(err);
+                    if(err) res.json({message: "Hubo un error al modificar el objeto "+err});
                 } else {
                     res.json({message: "Objeto se modifico bien)"});
                 }
@@ -94,7 +97,8 @@ router
                {
                    if (err)
                    {
-                       res.json(err);
+                       //res.json(err);
+                       if(err) res.json({message: "Hubo un error al eliminar el objeto "+err});
                    } else {
                        res.json({message: "Objeto se elimino bien)"});
                    }
@@ -111,7 +115,8 @@ router
         Objeto.find({numeroOrden: req.params.id},(err, objeto) =>      
         {
             console.log(req.params.id);
-            if(err) throw err;
+            //if(err) throw err;
+            if(err) res.json({message: "Hubo un error al procesar la solictud "+err});
             res.json(objeto);
         })
     })

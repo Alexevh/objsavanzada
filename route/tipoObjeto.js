@@ -6,7 +6,7 @@ router
     .route("/")
     .get((req,res) => {
         TipoObjeto.find((err, tipoObjeto) => {
-            if(err) res.json({message: "HUbo un error al encontrar el objeto "+err});;
+            if(err) res.json({message: "HUbo un error al encontrar el tipoobjeto "+err});;
 
 
             res.json(tipoObjeto);
@@ -21,8 +21,8 @@ router
         
 
         tipoObjeto.save((err) => {
-            if(err) throw err;
-
+           // if(err) throw err;
+           if(err) res.json({message: "Hubo un error al insertar el tipoobjeto "+err});
 
             res.json({message: "TipoObjeto successfully added! :-)"});
         });
@@ -36,7 +36,7 @@ router
 .get((req,res) => {
     TipoObjeto.findById(req.params.id,(err, tipoObjeto) => {
         console.log(req.params.id);
-        if(err) res.json({message: "Hubo un error al encontrar el objeto "+err});;
+        if(err) res.json({message: "Hubo un error al encontrar el tipooobjeto "+err});
         res.json(tipoObjeto);
     })
 })
