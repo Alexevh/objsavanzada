@@ -29,7 +29,7 @@ mongoose.connect(config.mongo_url, { useNewUrlParser: true })
 .then(()=>{
     console.log("MongoDB successfully connected!");
 
-    app.listen( config.port  || process.env.PORT , () => console.log(
+    app.listen( process.env.PORT || config.port  , () => console.log(
         "Application is running under port " + config.port));
 
 }).catch((err) => {
