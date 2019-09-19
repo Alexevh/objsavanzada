@@ -43,6 +43,6 @@ mongoose.connect(config.mongo_url, { useNewUrlParser: true })
 app.use(function(req, res, next)
 {
     res.status(404);
-    JSON.stringify("Error, pagina o recurso no encontrado");
+    res.json({message: "El recurso no esta disponible o la pagina no existe"});
     
 })
