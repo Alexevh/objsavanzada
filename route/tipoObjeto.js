@@ -6,7 +6,9 @@ router
     .route("/")
     .get((req,res) => {
         TipoObjeto.find((err, tipoObjeto) => {
-            if(err) throw err;
+            if(err) res.json({message: "HUbo un error al encontrar el objeto "+err});;
+
+
             res.json(tipoObjeto);
         })
     })
@@ -20,6 +22,8 @@ router
 
         tipoObjeto.save((err) => {
             if(err) throw err;
+
+
             res.json({message: "TipoObjeto successfully added! :-)"});
         });
 
