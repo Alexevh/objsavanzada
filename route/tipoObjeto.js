@@ -36,7 +36,7 @@ router
 .get((req,res) => {
     TipoObjeto.findById(req.params.id,(err, tipoObjeto) => {
         console.log(req.params.id);
-        if(err) throw err;
+        if(err) res.json({message: "Hubo un error al encontrar el objeto "+err});;
         res.json(tipoObjeto);
     })
 })
