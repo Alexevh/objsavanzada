@@ -39,3 +39,9 @@ mongoose.connect(config.mongo_url, { useNewUrlParser: true })
 
 
 
+/* error 404, tiene que ser lo ultimo, si nada machea se ejecuta esta funcion */
+app.use(function(req, res, next)
+{
+    res.status(404);
+    res.send("No hay nada aca valor")
+})
